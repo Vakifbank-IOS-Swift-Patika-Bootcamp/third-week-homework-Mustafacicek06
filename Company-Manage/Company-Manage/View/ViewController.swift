@@ -57,7 +57,19 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func addIncomeButtonClicked(_ sender: Any) {
+    @IBAction private func addEmployeeButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: VCManager.toNewEmployeePage.rawValue, sender: nil)
+    }
+    
+    @IBAction private func salaryPaymentButtonClicked(_ sender: Any) {
+        
+    }
+    
+    @IBAction func employeListButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: VCManager.toEmployeeListPage.rawValue, sender: nil)
+    }
+    
+    @IBAction private func addIncomeButtonClicked(_ sender: Any) {
         if textField.text != "" && textField.text != nil {
             if selectedSegmentIndex == 0 {
                 // do something
@@ -71,9 +83,11 @@ class ViewController: UIViewController {
             }
         }
         else {
-            
+            AlertManager.shared.showAlert(with: AlertError.emptyInput)
         }
       
     }
+    
+   
 }
 
