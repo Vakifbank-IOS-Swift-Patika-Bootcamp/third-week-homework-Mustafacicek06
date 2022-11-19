@@ -9,7 +9,9 @@ import Foundation
 
 
 struct Employee {
-    var employeeName: String?
-    var employeeSalary: Int?
-    var employeeTitle: String?
+    var employeeName: String
+    var employeeSalary: Int
+    var employeeTitle: EmployeeTitle
+    var employeeAge: Int
+    var civilStatus: CivilStatus
 }

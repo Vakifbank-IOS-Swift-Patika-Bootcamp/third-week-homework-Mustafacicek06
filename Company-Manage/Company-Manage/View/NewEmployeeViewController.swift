@@ -8,17 +8,20 @@
 import UIKit
 
 final class NewEmployeeViewController: UIViewController {
-
+    // MARK: Components
     @IBOutlet private weak var nameTextField: UITextField!
     
     @IBOutlet private weak var titleTextField: UITextField!
-    
-    @IBOutlet private weak var salaryTextField: UITextField!
     
     @IBOutlet private weak var ageTextField: UITextField!
     
     @IBOutlet private weak var civilStatusTextField: UITextField!
     var pickerView = UIPickerView()
+    
+    // MARK: Variables
+    
+    var employee: [Employee]?
+
     
     let employeeTitles = ["Junior", "Mid","Senior","Architecture","Manager", ]
     
@@ -28,6 +31,10 @@ final class NewEmployeeViewController: UIViewController {
         self.title = "New Employee"
         pickerView.delegate = self
         pickerView.dataSource = self
+        
+        nameTextField.text = employee?.count.description ?? "0"
+        
+        
         
         titleTextField.inputView = pickerView
     }

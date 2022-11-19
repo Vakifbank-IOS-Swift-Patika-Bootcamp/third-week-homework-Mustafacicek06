@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     var companyIncome = 0
     var companyExpense = 0
     var compnayEmployees = 0
+    var employees: [Employee] = [
+        Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
+        Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +92,13 @@ class ViewController: UIViewController {
       
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == VCManager.toNewEmployeePage.rawValue {
+            let destinationVC = segue.destination as! ViewController
+            destinationVC.employees = self.employees
+        }
+    }
+   
    
 }
 
