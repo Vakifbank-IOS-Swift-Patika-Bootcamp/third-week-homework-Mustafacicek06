@@ -7,23 +7,51 @@
 
 import UIKit
 
-class NewEmployeeViewController: UIViewController {
+final class NewEmployeeViewController: UIViewController {
 
+    @IBOutlet private weak var nameTextField: UITextField!
+    
+    @IBOutlet private weak var titleTextField: UITextField!
+    
+    @IBOutlet private weak var salaryTextField: UITextField!
+    
+    @IBOutlet private weak var ageTextField: UITextField!
+    
+    @IBOutlet private weak var civilStatusTextField: UITextField!
+    var pickerView = UIPickerView()
+    
+    let employeeTitles = ["Junior", "Mid","Senior","Architecture","Manager", ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "New Employee"
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        titleTextField.inputView = pickerView
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+extension NewEmployeeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
-
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        EmployeeTitle.allCases.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        employeeTitles[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        titleTextField.text = employeeTitles[row]
+        titleTextField.resignFirstResponder()
+    }
+    
 }

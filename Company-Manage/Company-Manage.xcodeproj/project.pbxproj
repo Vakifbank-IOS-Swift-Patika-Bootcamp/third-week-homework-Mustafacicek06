@@ -10,9 +10,12 @@
 		084488AE29262EC900F65381 /* NewEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084488AD29262EC900F65381 /* NewEmployeeViewController.swift */; };
 		084488B1292631FA00F65381 /* VCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084488B0292631FA00F65381 /* VCManager.swift */; };
 		084488B32926334700F65381 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084488B22926334700F65381 /* EmployeeListViewController.swift */; };
+		084C86752928FEFB00ADC12E /* EmployeeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084C86742928FEFB00ADC12E /* EmployeeTitle.swift */; };
+		084C86772928FF7700ADC12E /* CivilStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084C86762928FF7700ADC12E /* CivilStatus.swift */; };
 		087A7B512925A34D005FDB95 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A7B502925A34D005FDB95 /* AlertManager.swift */; };
 		087A7B532925A47E005FDB95 /* AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A7B522925A47E005FDB95 /* AlertError.swift */; };
 		087A7B572925A555005FDB95 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A7B562925A555005FDB95 /* UIApplication+Extension.swift */; };
+		0884AF5C2927B97A0029E02B /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884AF5B2927B97A0029E02B /* Employee.swift */; };
 		08B6E711292582DB00C6435F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B6E710292582DB00C6435F /* AppDelegate.swift */; };
 		08B6E713292582DB00C6435F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B6E712292582DB00C6435F /* SceneDelegate.swift */; };
 		08B6E715292582DB00C6435F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B6E714292582DB00C6435F /* ViewController.swift */; };
@@ -25,9 +28,12 @@
 		084488AD29262EC900F65381 /* NewEmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmployeeViewController.swift; sourceTree = "<group>"; };
 		084488B0292631FA00F65381 /* VCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCManager.swift; sourceTree = "<group>"; };
 		084488B22926334700F65381 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
+		084C86742928FEFB00ADC12E /* EmployeeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTitle.swift; sourceTree = "<group>"; };
+		084C86762928FF7700ADC12E /* CivilStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CivilStatus.swift; sourceTree = "<group>"; };
 		087A7B502925A34D005FDB95 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		087A7B522925A47E005FDB95 /* AlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertError.swift; sourceTree = "<group>"; };
 		087A7B562925A555005FDB95 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		0884AF5B2927B97A0029E02B /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		08B6E70D292582DB00C6435F /* Company-Manage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Company-Manage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B6E710292582DB00C6435F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08B6E712292582DB00C6435F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +68,9 @@
 		084488AF292631E500F65381 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				084C86742928FEFB00ADC12E /* EmployeeTitle.swift */,
 				084488B0292631FA00F65381 /* VCManager.swift */,
+				084C86762928FF7700ADC12E /* CivilStatus.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -101,6 +109,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		0884AF5A2927B9660029E02B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0884AF5B2927B97A0029E02B /* Employee.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		08B6E704292582DB00C6435F = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +136,7 @@
 		08B6E70F292582DB00C6435F /* Company-Manage */ = {
 			isa = PBXGroup;
 			children = (
+				0884AF5A2927B9660029E02B /* Model */,
 				084488AC29262EAE00F65381 /* View */,
 				087A7B542925A538005FDB95 /* Utilities */,
 				087A7B4E2925A32D005FDB95 /* Managers */,
@@ -207,12 +224,15 @@
 				084488AE29262EC900F65381 /* NewEmployeeViewController.swift in Sources */,
 				087A7B512925A34D005FDB95 /* AlertManager.swift in Sources */,
 				084488B32926334700F65381 /* EmployeeListViewController.swift in Sources */,
+				084C86772928FF7700ADC12E /* CivilStatus.swift in Sources */,
+				0884AF5C2927B97A0029E02B /* Employee.swift in Sources */,
 				08B6E715292582DB00C6435F /* ViewController.swift in Sources */,
 				087A7B532925A47E005FDB95 /* AlertError.swift in Sources */,
 				08B6E711292582DB00C6435F /* AppDelegate.swift in Sources */,
 				087A7B572925A555005FDB95 /* UIApplication+Extension.swift in Sources */,
 				084488B1292631FA00F65381 /* VCManager.swift in Sources */,
 				08B6E713292582DB00C6435F /* SceneDelegate.swift in Sources */,
+				084C86752928FEFB00ADC12E /* EmployeeTitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
