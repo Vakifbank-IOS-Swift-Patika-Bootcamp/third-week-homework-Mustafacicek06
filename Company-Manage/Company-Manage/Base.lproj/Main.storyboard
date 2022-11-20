@@ -213,6 +213,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="JK3-pd-d7L" eventType="touchUpInside" id="dhg-Ra-ur7"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Civil Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkv-d5-DDP">
                                 <rect key="frame" x="100" y="312" width="230" height="34"/>
@@ -265,8 +268,20 @@
                     <view key="view" contentMode="scaleToFill" id="kjj-rD-Tfc">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GHJ-cV-Vt8">
+                                <rect key="frame" x="0.0" y="103" width="430" height="795"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gI8-ch-rY3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gI8-ch-rY3" firstAttribute="bottom" secondItem="GHJ-cV-Vt8" secondAttribute="bottom" id="3dd-1j-ejI"/>
+                            <constraint firstItem="GHJ-cV-Vt8" firstAttribute="leading" secondItem="gI8-ch-rY3" secondAttribute="leading" id="e2r-Z5-OhH"/>
+                            <constraint firstItem="GHJ-cV-Vt8" firstAttribute="top" secondItem="gI8-ch-rY3" secondAttribute="top" id="eq7-WP-h86"/>
+                            <constraint firstItem="gI8-ch-rY3" firstAttribute="trailing" secondItem="GHJ-cV-Vt8" secondAttribute="trailing" id="kCd-hw-SFP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UcE-XA-WHS"/>
                 </viewController>

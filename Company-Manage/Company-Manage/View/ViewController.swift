@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     var selectedSegmentIndex = 0
     var companyIncome = 0
     var companyExpense = 0
-    var compnayEmployees = 0
+    var companyEmployees = 0
     var employees: [Employee] = [
         Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
         Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        setupComponents()
+        companyEmployeesCountLabel.text = "Company Employees: \(employees.count)"
 
     }
     // MARK: Private Functions
@@ -62,7 +63,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func addEmployeeButtonClicked(_ sender: Any) {
-        self.performSegue(withIdentifier: VCManager.toNewEmployeePage.rawValue, sender: nil)
+        self.performSegue(withIdentifier: VCManager.toNewEmployeePage.rawValue, sender: employees)
     }
     
     @IBAction private func salaryPaymentButtonClicked(_ sender: Any) {
@@ -94,11 +95,25 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == VCManager.toNewEmployeePage.rawValue {
-            let destinationVC = segue.destination as! ViewController
-            destinationVC.employees = self.employees
+            let destinationVC = segue.destination as! NewEmployeeViewController
+            print("employes count: \(employees.count)")
+            destinationVC.delegate = self
+            destinationVC.employee = self.employees
         }
     }
    
    
 }
 
+
+extension ViewController: NewEmployeeControllerDelegate {
+    func didAssignedAttributes(_ employees: [Employee]) {
+        self.employees = employees
+        companyEmployeesCountLabel.text = "Company Employees: \(self.employees.count)"
+        print(self.employees.count)
+    }
+    
+   
+    
+   
+}

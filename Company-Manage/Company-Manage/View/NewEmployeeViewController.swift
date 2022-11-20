@@ -16,14 +16,18 @@ final class NewEmployeeViewController: UIViewController {
     @IBOutlet private weak var ageTextField: UITextField!
     
     @IBOutlet private weak var civilStatusTextField: UITextField!
-    var pickerView = UIPickerView()
+    private var pickerView = UIPickerView()
+    
+    weak var delegate: NewEmployeeControllerDelegate?
+
     
     // MARK: Variables
     
     var employee: [Employee]?
 
     
-    let employeeTitles = ["Junior", "Mid","Senior","Architecture","Manager", ]
+    
+    private let employeeTitles = ["Junior", "Mid","Senior","Architecture","Manager", ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +38,21 @@ final class NewEmployeeViewController: UIViewController {
         
         nameTextField.text = employee?.count.description ?? "0"
         
-        
+        employee?.append(  Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single))
         
         titleTextField.inputView = pickerView
+        
+        
+    }
+   
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        employee?.append(  Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single))
+        self.delegate?.didAssignedAttributes(employee!)
+        print(employee?.count)
     }
     
-
-
 }
+
 
 extension NewEmployeeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

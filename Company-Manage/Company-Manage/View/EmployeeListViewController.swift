@@ -8,7 +8,8 @@
 import UIKit
 
 class EmployeeListViewController: UIViewController {
-
+    var employee: [Employee]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
