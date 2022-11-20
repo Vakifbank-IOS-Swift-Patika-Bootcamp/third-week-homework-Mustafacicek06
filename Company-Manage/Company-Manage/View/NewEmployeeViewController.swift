@@ -35,8 +35,7 @@ final class NewEmployeeViewController: UIViewController {
         self.title = "New Employee"
         pickerView.delegate = self
         pickerView.dataSource = self
-        
-        nameTextField.text = employee?.count.description ?? "0"
+
         
         employee?.append(  Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single))
         
@@ -46,9 +45,26 @@ final class NewEmployeeViewController: UIViewController {
     }
    
     @IBAction func saveButtonClicked(_ sender: Any) {
-        employee?.append(  Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single))
+        guard (nameTextField.text != nil), nameTextField.text != "" else {
+            AlertManager.shared.showAlert(with: .emptyInput)
+            return
+        }
+        guard (titleTextField.text != nil), titleTextField.text != "" else {
+            AlertManager.shared.showAlert(with: .emptyInput)
+            return
+        }
+        guard (ageTextField.text != nil), ageTextField.text != "" else {
+            
+            AlertManager.shared.showAlert(with: .emptyInput)
+            return
+        }
+        guard ( civilStatusTextField.text != nil), civilStatusTextField.text != "" else {
+            
+            AlertManager.shared.showAlert(with: .emptyInput)
+            return
+        }
+        employee?.append(  Employee(employeeName: nameTextField.text!, employeeSalary: Int(ageTextField.text), employeeTitle: .architecture, employeeAge: 22, civilStatus: .single))
         self.delegate?.didAssignedAttributes(employee!)
-        print(employee?.count)
     }
     
 }

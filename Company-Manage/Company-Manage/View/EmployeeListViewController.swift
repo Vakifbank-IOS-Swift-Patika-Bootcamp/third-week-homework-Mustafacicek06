@@ -7,8 +7,11 @@
 
 import UIKit
 
-class EmployeeListViewController: UIViewController {
+final class EmployeeListViewController: UIViewController {
     var employee: [Employee]?
+    
+    @IBOutlet private weak var employeeTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,14 +20,30 @@ class EmployeeListViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        employee?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = employee[indexPath.row].employeeName
+        
+        content.secondaryText = employee[indexPath.row].employeeTitle
+        
+        
+        return cell
+    }
+    
+    
+    
+}
+
+
+
+

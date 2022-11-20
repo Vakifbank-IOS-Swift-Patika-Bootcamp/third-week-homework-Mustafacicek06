@@ -30,8 +30,8 @@ class ViewController: UIViewController {
     var companyExpense = 0
     var companyEmployees = 0
     var employees: [Employee] = [
-        Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
-        Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
+        Employee(employeeName: "mustafa", employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
+        Employee(employeeName: "mustafa",  employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
     ]
 
     override func viewDidLoad() {
@@ -95,10 +95,15 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == VCManager.toNewEmployeePage.rawValue {
-            let destinationVC = segue.destination as! NewEmployeeViewController
-            print("employes count: \(employees.count)")
-            destinationVC.delegate = self
-            destinationVC.employee = self.employees
+            let destinationVC = segue.destination as? NewEmployeeViewController
+        
+            destinationVC?.delegate = self
+            destinationVC?.employee = self.employees
+        }
+        
+        if segue.identifier == VCManager.toEmployeeListPage.rawValue {
+            let destinationVC = segue.destination as? EmployeeListViewController
+            destinationVC?.employee = self.employees
         }
     }
    
@@ -110,7 +115,7 @@ extension ViewController: NewEmployeeControllerDelegate {
     func didAssignedAttributes(_ employees: [Employee]) {
         self.employees = employees
         companyEmployeesCountLabel.text = "Company Employees: \(self.employees.count)"
-        print(self.employees.count)
+    
     }
     
    

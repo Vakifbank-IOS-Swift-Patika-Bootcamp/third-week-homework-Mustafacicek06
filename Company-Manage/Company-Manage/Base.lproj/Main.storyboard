@@ -284,6 +284,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UcE-XA-WHS"/>
+                    <connections>
+                        <outlet property="employeeTableView" destination="GHJ-cV-Vt8" id="w9n-G9-0z8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQJ-sV-mAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
