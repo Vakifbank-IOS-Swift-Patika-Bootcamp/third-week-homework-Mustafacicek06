@@ -17,6 +17,8 @@ final class EmployeeListViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Employee List"
+        employeeTableView.delegate = self
+        employeeTableView.dataSource = self
     }
     
 
@@ -32,11 +34,11 @@ extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource
         let cell = UITableViewCell()
         
         var content = cell.defaultContentConfiguration()
-        content.text = employee[indexPath.row].employeeName
+        content.text = employee?[indexPath.row].employeeName
         
-        content.secondaryText = employee[indexPath.row].employeeTitle
+        content.secondaryText = employee?[indexPath.row].description
         
-        
+        cell.contentConfiguration = content
         return cell
     }
     

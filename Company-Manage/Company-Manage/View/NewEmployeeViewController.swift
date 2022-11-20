@@ -27,20 +27,22 @@ final class NewEmployeeViewController: UIViewController {
 
     
     
-    private let employeeTitles = ["Junior", "Mid","Senior","Architecture","Manager", ]
+    private let employeeTitles = ["Junior", "Mid","Senior","Architecture","Manager"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "New Employee"
+    
+        configurePickerView()
+       
+        
+    }
+    
+    private func configurePickerView() {
         pickerView.delegate = self
         pickerView.dataSource = self
-
-        
-        employee?.append(  Employee(employeeName: "mustafa", employeeSalary: 250, employeeTitle: .architecture, employeeAge: 22, civilStatus: .single))
-        
         titleTextField.inputView = pickerView
-        
         
     }
    
@@ -63,7 +65,7 @@ final class NewEmployeeViewController: UIViewController {
             AlertManager.shared.showAlert(with: .emptyInput)
             return
         }
-        employee?.append(  Employee(employeeName: nameTextField.text!, employeeSalary: Int(ageTextField.text), employeeTitle: .architecture, employeeAge: 22, civilStatus: .single))
+        employee?.append(  Employee(employeeName: nameTextField.text!, employeeTitle: employeeTitlesEqualToEnum(title: titleTextField?.text ), employeeAge: 22, civilStatus: .single))
         self.delegate?.didAssignedAttributes(employee!)
     }
     
@@ -85,7 +87,26 @@ extension NewEmployeeViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         titleTextField.text = employeeTitles[row]
+        
         titleTextField.resignFirstResponder()
+    }
+    
+    private func employeeTitlesEqualToEnum (title: String?) -> EmployeeTitle {
+        switch title {
+        case employeeTitles[0]:
+            return EmployeeTitle.junior
+        case employeeTitles[1]:
+            return EmployeeTitle.mid
+        case employeeTitles[2]:
+            return EmployeeTitle.senior
+        case employeeTitles[3]:
+            return EmployeeTitle.architecture
+        case employeeTitles[4]:
+            return EmployeeTitle.manager
+        default:
+            return EmployeeTitle.junior
+
+        }
     }
     
 }

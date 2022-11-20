@@ -21,3 +21,26 @@ struct Employee {
     
     
 }
+
+
+extension Employee: CustomStringConvertible {
+    var description: String {
+        switch  self.employeeTitle.rawValue {
+        case 1:
+            return "Junior"
+        case 2:
+            return "Mid"
+        case 3:
+            return "Senior"
+        case 4:
+            return "Architecture"
+        case 5:
+            return "Manager"
+        
+        default:
+            return "Junior"
+        }
+    }
+    
+   
+}

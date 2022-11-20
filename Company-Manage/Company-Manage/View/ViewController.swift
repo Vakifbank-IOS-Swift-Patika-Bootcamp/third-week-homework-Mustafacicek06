@@ -27,8 +27,13 @@ class ViewController: UIViewController {
     
     var selectedSegmentIndex = 0
     var companyIncome = 0
-    var companyExpense = 0
-    var companyEmployees = 0
+    var companyExpense: Int = 0 {
+        didSet {
+            employees.map { employee in
+                self.companyExpense +=  employee.employeeSalary ?? 0
+            }
+        }
+    }
     var employees: [Employee] = [
         Employee(employeeName: "mustafa", employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
         Employee(employeeName: "mustafa",  employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
