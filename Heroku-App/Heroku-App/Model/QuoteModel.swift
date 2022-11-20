@@ -8,9 +8,9 @@
 
 import Foundation
 
-// MARK: - QuoteModelElement
-struct QuoteModelElement: Codable {
+// MARK: - QuoteModel
+struct QuoteModel: Codable {
     let id, author, en: String
 }
 
-typealias QuoteModel = [QuoteModelElement]
+

@@ -7,13 +7,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    
+    @IBOutlet private weak var quoteLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+      getRandomQuote()
+       
     }
+    
+    private func getRandomQuote() {
+        
+        NetworkClient.getQuotes { [weak self] quote, error in
+            self?.quoteLabel.text = quote?.en
+            print(quote?.en)
+        }
+       
+        
+    }
+    
 
 
+    @IBAction private func getQuoteButtonClicked(_ sender: Any) {
+        getRandomQuote()
+        
+    }
 }
 

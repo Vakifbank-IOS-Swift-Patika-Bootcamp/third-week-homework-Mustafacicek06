@@ -62,8 +62,8 @@ class NetworkClient {
            return task
        }
        
-       class func getQuotes(completion: @escaping ([QuoteModel]?, Error?) -> Void) {
-           taskForGETRequest(url: Endpoints.getQuotesRandom.url, responsetType: [QuoteModel].self) { response, error in
+       class func getQuotes(completion: @escaping ( QuoteModel?, Error?) -> Void) {
+           taskForGETRequest(url: Endpoints.getQuotesRandom.url, responsetType: QuoteModel.self) { response, error in
                if let response = response {
                    completion(response, nil)
                } else {

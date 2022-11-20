@@ -30,6 +30,9 @@
                                         <rect key="frame" x="0.0" y="175.33333333333337" width="333" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <connections>
+                                            <action selector="getQuoteButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FMd-vZ-DJt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -43,6 +46,9 @@
                             <constraint firstItem="E9x-i4-Nkc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="rau-8i-QM9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="quoteLabel" destination="Nq1-CS-lS9" id="kaL-qQ-7PW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
