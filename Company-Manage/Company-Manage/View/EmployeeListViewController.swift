@@ -36,7 +36,11 @@ extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource
         var content = cell.defaultContentConfiguration()
         content.text = employee?[indexPath.row].employeeName
         
-        content.secondaryText = employee?[indexPath.row].description
+        
+        content.secondaryText = String("Salary : \(employee?[indexPath.row].employeeSalary ?? 0)")
+        
+        
+        
         
         cell.contentConfiguration = content
         return cell

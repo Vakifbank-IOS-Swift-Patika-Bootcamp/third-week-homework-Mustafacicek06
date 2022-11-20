@@ -207,7 +207,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agN-Tv-33t">
-                                <rect key="frame" x="170.66666666666666" y="398" width="88.999999999999972" height="34.333333333333314"/>
+                                <rect key="frame" x="170.66666666666666" y="399" width="88.999999999999972" height="34.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="89" id="O3V-Ci-DSL"/>
                                 </constraints>
@@ -217,14 +217,6 @@
                                     <action selector="saveButtonClicked:" destination="JK3-pd-d7L" eventType="touchUpInside" id="dhg-Ra-ur7"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Civil Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkv-d5-DDP">
-                                <rect key="frame" x="100" y="312" width="230" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="j1Q-6R-5mO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9P-za-hTu">
                                 <rect key="frame" x="100" y="250" width="230" height="34"/>
                                 <constraints>
@@ -233,27 +225,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BLx-9w-hwt">
+                                <rect key="frame" x="100" y="312" width="230" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="TDw-cz-ZD8"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Married"/>
+                                    <segment title="Signle"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="1" green="0.70196078429999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="JK3-pd-d7L" eventType="valueChanged" id="0ee-cR-5Wl"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GQW-dd-t9n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="l9P-za-hTu" firstAttribute="centerX" secondItem="Q9i-5Z-973" secondAttribute="centerX" id="8pO-Kg-DGJ"/>
                             <constraint firstItem="mMJ-18-LXl" firstAttribute="top" secondItem="YPq-Ya-6L3" secondAttribute="bottom" constant="18" id="CZh-dx-amf"/>
-                            <constraint firstItem="agN-Tv-33t" firstAttribute="top" secondItem="zkv-d5-DDP" secondAttribute="bottom" constant="52" id="GTm-uL-OnC"/>
                             <constraint firstItem="agN-Tv-33t" firstAttribute="centerX" secondItem="Q9i-5Z-973" secondAttribute="centerX" id="Noy-RZ-frY"/>
-                            <constraint firstItem="zkv-d5-DDP" firstAttribute="centerX" secondItem="Q9i-5Z-973" secondAttribute="centerX" id="ec9-dF-OSP"/>
                             <constraint firstItem="l9P-za-hTu" firstAttribute="top" secondItem="mMJ-18-LXl" secondAttribute="bottom" constant="19" id="gUf-a9-6mI"/>
                             <constraint firstItem="mMJ-18-LXl" firstAttribute="centerX" secondItem="Q9i-5Z-973" secondAttribute="centerX" id="lje-5A-HPI"/>
+                            <constraint firstItem="agN-Tv-33t" firstAttribute="top" secondItem="BLx-9w-hwt" secondAttribute="bottom" constant="56" id="lun-wn-kdx"/>
+                            <constraint firstItem="BLx-9w-hwt" firstAttribute="centerX" secondItem="Q9i-5Z-973" secondAttribute="centerX" id="nPT-Tl-fes"/>
                             <constraint firstItem="YPq-Ya-6L3" firstAttribute="top" secondItem="GQW-dd-t9n" secondAttribute="top" constant="42" id="qCA-ud-Axr"/>
-                            <constraint firstItem="zkv-d5-DDP" firstAttribute="top" secondItem="l9P-za-hTu" secondAttribute="bottom" constant="28" id="sWz-lz-uG1"/>
+                            <constraint firstItem="BLx-9w-hwt" firstAttribute="top" secondItem="l9P-za-hTu" secondAttribute="bottom" constant="28" id="qwS-YS-nu6"/>
                             <constraint firstItem="YPq-Ya-6L3" firstAttribute="centerX" secondItem="Q9i-5Z-973" secondAttribute="centerX" id="wx4-CQ-GtE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KK0-PF-ZYg"/>
                     <connections>
                         <outlet property="ageTextField" destination="l9P-za-hTu" id="oi4-WY-tdi"/>
-                        <outlet property="civilStatusTextField" destination="zkv-d5-DDP" id="mq3-xm-1Se"/>
-                        <outlet property="nameTextField" destination="mMJ-18-LXl" id="aHn-Ky-W2m"/>
+                        <outlet property="nameTextField" destination="YPq-Ya-6L3" id="Hrt-kY-5Pj"/>
+                        <outlet property="segmentedControl" destination="BLx-9w-hwt" id="fmg-1A-S0p"/>
                         <outlet property="titleTextField" destination="mMJ-18-LXl" id="eRM-me-vja"/>
                     </connections>
                 </viewController>

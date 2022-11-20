@@ -7,7 +7,18 @@
 
 import Foundation
 
-enum CivilStatus: CaseIterable {
+enum CivilStatus: String {
     case married, single
     
+}
+
+extension CivilStatus {
+    var rawValue: String  {
+       switch self {
+         case CivilStatus.married:
+           return "Married";
+         case CivilStatus.single:
+           return "Single";
+       }
+     }
 }

@@ -13,11 +13,7 @@ struct Employee {
     var employeeTitle: EmployeeTitle
     var employeeAge: Int
     var civilStatus: CivilStatus
-    var employeeSalary: Int? {
-        didSet {
-            self.employeeSalary = employeeAge * employeeTitle.rawValue * 500
-        }
-    }
+    var employeeSalary: Int? 
     
     
 }

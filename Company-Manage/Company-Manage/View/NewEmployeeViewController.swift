@@ -15,8 +15,11 @@ final class NewEmployeeViewController: UIViewController {
     
     @IBOutlet private weak var ageTextField: UITextField!
     
-    @IBOutlet private weak var civilStatusTextField: UITextField!
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
+    
+    
     private var pickerView = UIPickerView()
+
     
     weak var delegate: NewEmployeeControllerDelegate?
 
@@ -24,11 +27,11 @@ final class NewEmployeeViewController: UIViewController {
     // MARK: Variables
     
     var employee: [Employee]?
-
+    var segmentedCivilStatus: String = "Married"
     
     
     private let employeeTitles = ["Junior", "Mid","Senior","Architecture","Manager"]
-    
+    private let civilStatus = ["Married", "Signle"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,11 +45,26 @@ final class NewEmployeeViewController: UIViewController {
     private func configurePickerView() {
         pickerView.delegate = self
         pickerView.dataSource = self
+ 
+        
+        
+        
         titleTextField.inputView = pickerView
         
     }
    
-    @IBAction func saveButtonClicked(_ sender: Any) {
+    @IBAction func segmentedControlAction(_ sender: Any) {
+        
+        let selectedSegmentIndex = (sender as! UISegmentedControl).selectedSegmentIndex
+        if selectedSegmentIndex == 0 {
+            self.segmentedCivilStatus = "Married"
+        }
+        else {
+            self.segmentedCivilStatus = "Single"
+    
+        }
+    }
+    @IBAction private func saveButtonClicked(_ sender: Any) {
         guard (nameTextField.text != nil), nameTextField.text != "" else {
             AlertManager.shared.showAlert(with: .emptyInput)
             return
@@ -60,13 +78,16 @@ final class NewEmployeeViewController: UIViewController {
             AlertManager.shared.showAlert(with: .emptyInput)
             return
         }
-        guard ( civilStatusTextField.text != nil), civilStatusTextField.text != "" else {
+       
+        employee?.append(  Employee(employeeName: nameTextField.text!, employeeTitle: employeeTitlesEqualToEnum(title: titleTextField?.text ), employeeAge: Int(ageTextField?.text ?? "0") ?? 0, civilStatus: civilStatusEqualToEnum(status:    segmentedCivilStatus),employeeSalary:    calculateSalary()
             
-            AlertManager.shared.showAlert(with: .emptyInput)
-            return
-        }
-        employee?.append(  Employee(employeeName: nameTextField.text!, employeeTitle: employeeTitlesEqualToEnum(title: titleTextField?.text ), employeeAge: 22, civilStatus: .single))
+        ))
+        
         self.delegate?.didAssignedAttributes(employee!)
+        AlertManager.shared.showAlert(with: .success)
+    }
+    private func calculateSalary() -> Int {
+        return (Int(ageTextField?.text ?? "0") ?? 0) * employeeTitlesEqualToEnum(title: titleTextField?.text).rawValue * 500
     }
     
 }
@@ -108,5 +129,19 @@ extension NewEmployeeViewController: UIPickerViewDelegate, UIPickerViewDataSourc
 
         }
     }
+    
+    private func civilStatusEqualToEnum (status: String?) -> CivilStatus {
+        switch status {
+        case civilStatus[0]:
+            return CivilStatus.married
+        case civilStatus[1]:
+            return CivilStatus.single
+      
+        default:
+            return CivilStatus.single
+
+        }
+    }
+    
     
 }

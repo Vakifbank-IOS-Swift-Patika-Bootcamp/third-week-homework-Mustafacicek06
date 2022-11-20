@@ -27,23 +27,18 @@ class ViewController: UIViewController {
     
     var selectedSegmentIndex = 0
     var companyIncome = 0
-    var companyExpense: Int = 0 {
-        didSet {
-            employees.map { employee in
-                self.companyExpense +=  employee.employeeSalary ?? 0
-            }
-        }
-    }
-    var employees: [Employee] = [
-        Employee(employeeName: "mustafa", employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
-        Employee(employeeName: "mustafa",  employeeTitle: .architecture, employeeAge: 22, civilStatus: .single),
-    ]
+    var companyExpense: Int = 0
+    var employees: [Employee] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        setupComponents()
-        companyEmployeesCountLabel.text = "Company Employees: \(employees.count)"
+        companyIncomeLabel.text = "Company Employees: \(companyIncome)"
+
+        companyEmployeesCountLabel.text = "Company Employees: \(employees.count )"
+        
+        companyExpenseLabel.text = "Company Expense: \(companyExpense)"
 
     }
     // MARK: Private Functions
@@ -51,7 +46,11 @@ class ViewController: UIViewController {
         textField.keyboardType = .numberPad
         
     }
-    
+    private func calculateCompanyExpense() {
+        employees.map { employee in
+            self.companyExpense += employee.employeeSalary ?? 1
+        }
+    }
     // MARK: Public Functions
     
     
@@ -72,6 +71,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func salaryPaymentButtonClicked(_ sender: Any) {
+        employees.map { employee in
+            companyIncome -= employee.employeeSalary ??  0
+        }
+        companyIncomeLabel.text = "Company Income: \(companyIncome)"
         
     }
     
@@ -120,7 +123,11 @@ extension ViewController: NewEmployeeControllerDelegate {
     func didAssignedAttributes(_ employees: [Employee]) {
         self.employees = employees
         companyEmployeesCountLabel.text = "Company Employees: \(self.employees.count)"
-    
+        calculateCompanyExpense()
+        companyExpenseLabel.text = "Company Expense: \(self.companyExpense)"
+        
+        
+
     }
     
    
