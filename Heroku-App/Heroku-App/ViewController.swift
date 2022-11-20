@@ -19,20 +19,15 @@ final class ViewController: UIViewController {
     }
     
     private func getRandomQuote() {
-        
         NetworkClient.getQuotes { [weak self] quote, error in
             self?.quoteLabel.text = quote?.en
-            print(quote?.en)
         }
-       
-        
     }
     
 
 
     @IBAction private func getQuoteButtonClicked(_ sender: Any) {
         getRandomQuote()
-        
     }
 }
 

@@ -20,7 +20,7 @@ class NetworkClient {
                 var stringValue: String {
                     switch self {
                     case .getQuotesRandom:
-                        return Endpoints.base + "/random"
+                        return Endpoints.base + "random"
                 
                     }
                 }
@@ -37,6 +37,7 @@ class NetworkClient {
                    DispatchQueue.main.async {
                        completion(nil, error)
                    }
+                   print(data?.description)
                    return
                }
                let decoder = JSONDecoder()

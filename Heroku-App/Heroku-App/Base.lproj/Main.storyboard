@@ -17,19 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="E9x-i4-Nkc">
-                                <rect key="frame" x="30" y="321.33333333333331" width="333" height="209.66666666666669"/>
+                                <rect key="frame" x="30" y="389.33333333333331" width="333" height="73.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nq1-CS-lS9">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="136.33333333333334"/>
-                                        <string key="text">lQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabelQuoteLabel</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nq1-CS-lS9">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxr-lA-lxK">
-                                        <rect key="frame" x="0.0" y="175.33333333333337" width="333" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="39" width="333" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Get Quote"/>
                                         <connections>
                                             <action selector="getQuoteButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FMd-vZ-DJt"/>
                                         </connections>
